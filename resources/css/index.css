@@ -1,15 +1,7 @@
-@import '../../vendor/filament/filament/resources/css/theme.css';
+/* Driver.js styles - only import what's needed for the tour functionality */
 @import "driver.js/dist/driver.css";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-@tailwind screens;
-
-.hidden {
-    display: none !important;
-}
-
+/* Custom plugin styles */
 #circle-cursor {
     pointer-events: none;
     cursor: crosshair;
@@ -69,25 +61,22 @@
     left: -16px;
 }
 
-@layer utilities {
+/* Dark mode styles */
+.dark .driver-popover-arrow {
+    border: 5px solid rgb(var(--gray-900)) !important;
+    border-right-color: #0000 !important;
+    border-bottom-color: #0000 !important;
+    border-top-color: #0000 !important;
+}
 
-    .dark .driver-popover-arrow {
-        border: 5px solid rgb(var(--gray-900)) !important;
-        border-right-color: #0000 !important;
-        border-bottom-color: #0000 !important;
-        border-top-color: #0000 !important;
-    }
-
-    .dark .driver-popover {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 15px;
-        border-radius: 5px;
-        box-shadow: 0 1px 10px #0006;
-        z-index: 1000000000;
-        position: fixed;
-        top: 0;
-        right: 0;
-    }
-
+.dark .driver-popover {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 1px 10px #0006;
+    z-index: 1000000000;
+    position: fixed;
+    top: 0;
+    right: 0;
 }
