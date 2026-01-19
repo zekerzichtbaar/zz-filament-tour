@@ -256,9 +256,9 @@ document.addEventListener('livewire:initialized', async function () {
                     nextButton.classList.add(...nextClasses.split(" "), 'driver-popover-next-btn');
                     nextButton.innerText = driverObj.isLastStep() ? tour.doneButtonLabel : tour.nextButtonLabel;
 
-                    nextButton.style.setProperty('--c-400', 'var(--primary-400');
-                    nextButton.style.setProperty('--c-500', 'var(--primary-500');
-                    nextButton.style.setProperty('--c-600', 'var(--primary-600');
+                    nextButton.style.setProperty('--c-400', 'var(--primary-400)');
+                    nextButton.style.setProperty('--c-500', 'var(--primary-500)');
+                    nextButton.style.setProperty('--c-600', 'var(--primary-600)');
 
                     const prevButton = document.createElement("button");
                     let prevClasses = "fi-btn fi-btn-size-md relative grid-flow-col items-center justify-center font-semibold outline-none transition duration-75 focus:ring-2 disabled:pointer-events-none disabled:opacity-70 rounded-lg fi-btn-color-gray gap-1.5 px-3 py-2 text-sm inline-grid shadow-sm bg-white text-gray-950 hover:bg-gray-50 dark:bg-white/5 dark:text-white dark:hover:bg-white/10 ring-1 ring-gray-950/10 dark:ring-white/20 fi-ac-btn-action";
