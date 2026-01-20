@@ -250,20 +250,28 @@ document.addEventListener('livewire:initialized', async function () {
                     popover.footer.classList.remove("driver-popover-footer");
 
 
+                    // Style close button
+                    const closeBtn = popover.closeBtnEl || popover.wrapper.querySelector('.driver-popover-close-btn');
+                    if (closeBtn) {
+                        closeBtn.style.cssText = 'color: #6b7280; font-size: 24px; font-weight: 400; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 8px; transition: all 0.2s;';
+                        closeBtn.innerHTML = '&times;';
+                        closeBtn.onmouseover = () => closeBtn.style.backgroundColor = '#f3f4f6';
+                        closeBtn.onmouseout = () => closeBtn.style.backgroundColor = 'transparent';
+                    }
+
                     const nextButton = document.createElement("button");
-                    let nextClasses = "fi-btn fi-btn-size-md relative grid-flow-col items-center justify-center font-semibold outline-none transition duration-75 focus:ring-2 disabled:pointer-events-none disabled:opacity-70 rounded-lg fi-btn-color-primary gap-1.5 px-3 py-2 text-sm inline-grid shadow-sm bg-custom-600 text-white hover:bg-custom-500 dark:bg-custom-500 dark:hover:bg-custom-400 focus:ring-custom-500/50 dark:focus:ring-custom-400/50 fi-ac-btn-action";
-
-                    nextButton.classList.add(...nextClasses.split(" "), 'driver-popover-next-btn');
+                    nextButton.classList.add('driver-popover-next-btn');
                     nextButton.innerText = driverObj.isLastStep() ? tour.doneButtonLabel : tour.nextButtonLabel;
-
-                    nextButton.style.setProperty('--c-400', 'var(--primary-400)');
-                    nextButton.style.setProperty('--c-500', 'var(--primary-500)');
-                    nextButton.style.setProperty('--c-600', 'var(--primary-600)');
+                    nextButton.style.cssText = 'background-color: rgb(var(--primary-600)); color: white; font-weight: 600; padding: 8px 16px; border-radius: 8px; font-size: 14px; transition: all 0.2s; border: none; cursor: pointer;';
+                    nextButton.onmouseover = () => nextButton.style.backgroundColor = 'rgb(var(--primary-500))';
+                    nextButton.onmouseout = () => nextButton.style.backgroundColor = 'rgb(var(--primary-600))';
 
                     const prevButton = document.createElement("button");
-                    let prevClasses = "fi-btn fi-btn-size-md relative grid-flow-col items-center justify-center font-semibold outline-none transition duration-75 focus:ring-2 disabled:pointer-events-none disabled:opacity-70 rounded-lg fi-btn-color-gray gap-1.5 px-3 py-2 text-sm inline-grid shadow-sm bg-white text-gray-950 hover:bg-gray-50 dark:bg-white/5 dark:text-white dark:hover:bg-white/10 ring-1 ring-gray-950/10 dark:ring-white/20 fi-ac-btn-action";
-                    prevButton.classList.add(...prevClasses.split(" "), 'driver-popover-prev-btn');
+                    prevButton.classList.add('driver-popover-prev-btn');
                     prevButton.innerText = tour.previousButtonLabel;
+                    prevButton.style.cssText = 'background-color: white; color: #111827; font-weight: 600; padding: 8px 16px; border-radius: 8px; font-size: 14px; transition: all 0.2s; border: 1px solid #e5e7eb; cursor: pointer;';
+                    prevButton.onmouseover = () => prevButton.style.backgroundColor = '#f9fafb';
+                    prevButton.onmouseout = () => prevButton.style.backgroundColor = 'white';
 
                     if (!driverObj.isFirstStep()) {
                         popover.footer.appendChild(prevButton);
